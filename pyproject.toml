@@ -13,3 +13,14 @@ license = { text = "MIT" }
 
 [project.scripts]
 gtree = "tree_cli.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tree_cli"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "tree_cli",
+  "pyproject.toml",
+  "README.md",
+  "LICENSE"
+]
