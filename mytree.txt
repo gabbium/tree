@@ -1,0 +1,10 @@
+C:\Users\gaber\OneDrive\Documentos\Development\tree
+├── .gitignore
+├── LICENSE
+├── README.md
+├── mytree.txt
+├── pyproject.toml
+├── test.txt
+└── tree_cli/
+    ├── __init__.py
+    └── cli.py

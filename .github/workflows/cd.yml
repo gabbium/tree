@@ -1,0 +1,45 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  release:
+    name: Build & Release
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build hatchling python-semantic-release
+
+      - name: semantic-release (version/tag/changelog + build)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m semantic_release version
+          python -m build
+
+      - name: Publish to PyPI (OIDC)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
