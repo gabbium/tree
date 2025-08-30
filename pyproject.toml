@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling>=1.21.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gabbium-tree"
+version = "0.1.0"
+description = "CLI to print a project directory tree"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Gabriel Abreu (@gabbium)" }]
+license = { text = "MIT" }
+
+[project.scripts]
+gtree = "tree_cli.cli:main"
