@@ -86,14 +86,6 @@ gtree . > tree.txt
 
 ---
 
-## 🛠 Roadmap
-
-- [ ] Option for ASCII-only mode (`--ascii`)\
-- [ ] Output to file (`--output tree.txt`)\
-- [ ] Config file support (`.gtreerc`)
-
----
-
 ## 🪪 License
 
 This project is licensed under the MIT License -- see [LICENSE](LICENSE)
